@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/json/js/AjaxUtil.js"></script>
+</head>
+<body>
+<script>
+         var au = new AjaxUtil({url:'/json/json/list',cb:callback});
+         au.send();
+         
+         function callback(res){  
+        	 var diList = JSON.parse(res);
+        	 for(var di of diList){
+        		 console.log(di);
+        		 
+        
+        	 }
+         }
+</script>
+</body>
+</html>

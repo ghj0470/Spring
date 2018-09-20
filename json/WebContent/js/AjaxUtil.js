@@ -1,8 +1,7 @@
-
 var AjaxUtil = function(conf) {
 	var method = conf.method ? conf.method : 'GET';
 	var url = conf.url;
-	var param = JSON.stringify(conf.param);
+	var params = conf.params? JSON.stringify(conf.params) : '';
 	var type = conf.type ? conf.tyope : 'json';
 	var comErr = function(res) {
 		alert(res);
@@ -26,14 +25,14 @@ var AjaxUtil = function(conf) {
 	}
 	this.send = function() {
 		if (method == 'GET') {
-			url += '?param=' + encodeURIComponent(param);
+			url += '?params=' + encodeURIComponent(params);
 		}
 		xhr.open(method, url);
 		xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
 		if (method == 'GET') {
 			xhr.send();
 		} else {
-			xhr.send(param);
+			xhr.send(params);
 		}
 	}
 }
